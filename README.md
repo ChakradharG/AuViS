@@ -1,5 +1,5 @@
 # Automated-Video-Summarization
-Automated highlight generation for sports videos was developed for the final year project of my Engineering curriculum.
+Automated Video Summarization for sports videos was developed for the final year project of my Engineering curriculum.
 
 <br>
 
