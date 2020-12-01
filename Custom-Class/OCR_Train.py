@@ -124,7 +124,7 @@ print(pred.argmax())
 
 model.save(F"{path}OCRModel.h5")
 
-"""Credit to [Orhan Gazi Yalçın](https://towardsdatascience.com/@oyalcin) for his article [Image Classification in 10 Minutes with MNIST Dataset](https://https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d) over at Medium
+"""Credit to [Orhan Gazi Yalçın](https://towardsdatascience.com/@oyalcin) for their article [Image Classification in 10 Minutes with MNIST Dataset](https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d) over at Medium
 
 # Using the model for custom predictions
 
