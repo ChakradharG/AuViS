@@ -2,3 +2,4 @@ tensorflow==2.1.0
 imageai==2.1.5
 Keras==2.3.1
 opencv-python==4.2.0.34
+moviepy==0.2.3.5
