@@ -5,6 +5,7 @@ import cv2
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'	#To suppress warnings thrown by tensorflow
 import Detector as D
 import Ocr as O
+import Editor as E
 
 
 #@@
@@ -18,6 +19,7 @@ def kabaddi(score, preScore, sec, log, events):
 		print(f'{sec//60}:{sec%60} ~ Super Raid')
 		log.write(f'{sec//60}:{sec%60} ~ Super Raid\n')
 		events['Super Raids'] += 1
+		timeStamps.append(sec)
 
 
 def football(score, preScore, sec, log, events):
@@ -27,10 +29,12 @@ def football(score, preScore, sec, log, events):
 		print(f'{sec//60}:{sec%60} ~ Home team scored')
 		log.write(f'{sec//60}:{sec%60} ~ Home team scored\n')
 		events['Goals Scored by the Home Team'] += 1
+		timeStamps.append(sec)
 	elif score[1] == preScore[1] + 1:
 		print(f'{sec//60}:{sec%60} ~ Away team scored')
 		log.write(f'{sec//60}:{sec%60} ~ Away team scored\n')
 		events['Goals Scored by the Away Team'] += 1
+		timeStamps.append(sec)
 
 
 def cricket(score, preScore, sec, log, events):
@@ -40,6 +44,7 @@ def cricket(score, preScore, sec, log, events):
 		print(f'{sec//60}:{sec%60} ~ Wicket')
 		log.write(f'{sec//60}:{sec%60} ~ Wicket\n')
 		events['Wickets'] += 1
+		timeStamps.append(sec)
 
 	runDiff = score[0] - preScore[0]
 
@@ -47,14 +52,17 @@ def cricket(score, preScore, sec, log, events):
 		print(f'{sec//60}:{sec%60} ~ Six')
 		log.write(f'{sec//60}:{sec%60} ~ Six\n')
 		events['Sixes'] += 1
+		timeStamps.append(sec)
 	elif runDiff == 4:
 		print(f'{sec//60}:{sec%60} ~ Four')
 		log.write(f'{sec//60}:{sec%60} ~ Four\n')
 		events['Fours'] += 1
+		timeStamps.append(sec)
 	elif runDiff == 3 or runDiff == 5:
 		print(f'{sec//60}:{sec%60} ~ 3 or 5 runs')
 		log.write(f'{sec//60}:{sec%60} ~ 3 or 5 runs\n')
 		events['3s or 5s'] += 1
+		timeStamps.append(sec)
 
 
 def main(vid, video, game):
@@ -122,7 +130,7 @@ def getGame():
 	game = input('Enter Choice of Game\n1.Kabaddi\n2.Football\n3.Cricket\n')	#@@
 	if game not in '123':	#@@
 		input('Wrong Choice'); exit()
-	vidName = input('Enter Name of Video File: ')
+	vidName, extension = input('Enter Name of Video File: ').split('.')
 
 	path = f'{os.getcwd()}/{vidName}'	#Path of the working directory
 	try:	#Creating a folder for the given video
@@ -133,13 +141,15 @@ def getGame():
 		os.mkdir(path); os.chdir(path)
 
 	try:	#Opening video file
-		vid = cv2.VideoCapture(f'{path}.mp4')	#Video used for detecting the location of the scoreboard
-		video = cv2.VideoCapture(f'{path}.mp4')	#Video used for actual extraction
+		vid = cv2.VideoCapture(f'{path}.{extension}')	#Video used for detecting the location of the scoreboard
+		video = cv2.VideoCapture(f'{path}.{extension}')	#Video used for actual extraction
 	except:
 		input('No such file'); exit()
 
 	D.load(game)
 	main(vid, video, game)
+	E.combine(vidName, extension, timeStamps)
 
 
+timeStamps = []
 getGame()
