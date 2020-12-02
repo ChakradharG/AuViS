@@ -12,7 +12,7 @@ Works on latest editions of Bundesliga, English Premier League, Indian Pro Kabad
 4. Copy the desired input video into this folder
 5. Run Highlights.py
 
-_requirements_: tensorflow, imageai, keras, opencv-python
+_requirements_: tensorflow, imageai, keras, opencv-python, moviepy
 
 <br>
 
