@@ -76,7 +76,7 @@ def main(vid, video, game):
 		ret, frame = vid.read()
 		if not ret:
 			break
-		if i % (30*frRt) == 0:	#Checking for scoreboard every 30s
+		if i % (30*frRt) == 0:	#%%Checking for scoreboard every 30s
 			cv2.imwrite('Image.png',frame)
 			b = D.detect()
 			if b != None:
@@ -148,7 +148,7 @@ def getGame():
 
 	D.load(game)
 	main(vid, video, game)
-	E.combine(vidName, extension, timeStamps)
+	E.combine(vidName, extension, timeStamps, path)
 
 
 timeStamps = []
