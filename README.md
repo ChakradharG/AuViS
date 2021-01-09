@@ -25,4 +25,8 @@ AuViS (Automated Video Summarization) was developed for the final year project o
 <br>
 
 ## Example Output
-(Images/Videos)
+![](Example/Img_1.png)
+![](Example/Img_2.png)
+![](Example/Img_3.png)
+![](Example/Img_4.png)
+![](Example/Img_5.png)
