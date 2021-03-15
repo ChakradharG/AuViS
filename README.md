@@ -5,8 +5,9 @@ AuViS (Automated Video Summarization) was developed for the final year project o
 
 ## Getting Started
 * Clone this repository
+* ```cd AuViS```
 * Download the model and JSON files from ```Release v1.0```
-* Install the required modules (pip install -r ```Requirements.txt```)
+* Install the required modules (```pip install -r requirements.txt```)
 * Download and install Microsoft Visual C++
 * Copy the desired video into this directory
 * Run ```Highlights.py```
