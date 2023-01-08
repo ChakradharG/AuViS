@@ -1,5 +1,5 @@
 # AuViS
-AuViS (Automated Video Summarization) was developed for the final year project of my Engineering curriculum. The code takes in a video of one of the supported sports videos and generates highlights of the said video. It uses ```YOLOv3``` to detect the location of the scoreboard and a custom trained convolutional nueral network as the OCR to extract the score out of the frame.
+AuViS (Automated Video Summarization) was developed for the final year project of my Engineering curriculum. The code takes in a video of one of the supported sports videos and generates highlights of the said video. It uses ```YOLOv3``` to detect the location of the scoreboard and a custom trained convolutional neural network as the OCR to extract the score out of the frame.
 
 <br>
 
